@@ -1,6 +1,6 @@
 tasks:
   - before: yarn
-    command: yarn build:app && cd easy-docs && yarn serve
+    command: bash run.sh
 
 ports:
   - port: 8080
