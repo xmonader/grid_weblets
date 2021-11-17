@@ -1,0 +1,20 @@
+tasks:
+  - before: yarn
+    command: yarn build:app && cd easy-docs && yarn serve
+
+ports:
+  - port: 8080
+    onOpen: open-browser
+
+vscode:
+  extensions:
+    - zhuangtongfa.Material-theme
+    - esbenp.prettier-vscode
+    - octref.vetur
+    - redhat.vscode-yaml
+    - vscode-icons-team.vscode-icons
+    - CoenraadS.bracket-pair-colorizer
+
+github:
+  prebuilds:
+    master: true
