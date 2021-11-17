@@ -21,11 +21,11 @@
   const { events } = window.configs?.grid3_client ?? {};
   import deployVM from "../../utils/deployVM";
 
-  const data = new VM();
+  const data = new VM(undefined, undefined, "https://hub.grid.tf/omar0.3bot/omarelawady-funk-latest.flist");
 
   const tabs = [
     { label: "Base" },
-    { label: "Envs" },
+    // { label: "Envs" },
     // { label: "Packages" },
     { label: "Configs" },
   ];
@@ -38,10 +38,21 @@
   // prettier-ignore
   const baseFields: IFormField[] = [
     { label: "Name", symbol: 'name', placeholder: 'Your VM name.'},
+    { label: "FList", symbol: 'flist', placeholder: 'Your flist.'},
+    { label: "CPU", symbol: 'cpu', placeholder: 'Your Cpu size.', type: 'number'},
+    { label: "Memory", symbol: 'memory', placeholder: 'Your Memory size.', type: 'number'},
+    { label: "Entry Point", symbol: 'entrypoint', placeholder: 'Your Entrypoint.'},
     { label: "Public IP", symbol: "publicIp", placeholder: "", type: 'checkbox' },
-    { label: "Planetary", symbol: "planetary", placeholder: "", type: 'checkbox' },
-    ];
+    { label: "Node ID", symbol: 'nodeId', placeholder: 'Your Node ID.', type: 'number'},
+    { label: "Root FS Size", symbol: 'rootFsSize', placeholder: 'Your Root File System Size.', type: 'number'},
+    { label: "Planetary", symbol: "planetary", placeholder: "", type: 'checkbox' },  
+  ];
 
+    // prettier-ignore
+  const networkFields: IFormField[] = [
+    { label: "Network Name", symbol: "name", placeholder: "Your Network Name." },
+    { label: "Network IP Range", symbol: "ipRange", placeholder: "Your Network IP Range." },
+  ];
   // prettier-ignore
   const envFields: IFormField[] = [
     { label: 'Key', symbol: 'key', placeholder: "Your Env Key."},
@@ -154,7 +165,7 @@
         {/each}
 
         <!-- Network info -->
-        <!-- {#each networkFields as field (field.symbol)}
+        {#each networkFields as field (field.symbol)}
           <div class="field">
             <p class="label">{field.label}</p>
             <div class="control">
@@ -166,7 +177,7 @@
               />
             </div>
           </div>
-        {/each} -->
+        {/each}
       {/if}
 
       {#if active === "Envs"}

@@ -46,8 +46,8 @@ export default class VM {
     /* Network */
     public network = new Network(),
 
-    public envs: Env[] = [new Env()],
-    public disks: Disk[] = [new Disk()],
+    public envs: Env[] = [],
+    public disks: Disk[] = [],
     public publicIp = false,
 
     /* Configs */
