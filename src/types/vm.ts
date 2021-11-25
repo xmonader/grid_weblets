@@ -39,7 +39,7 @@ export default class VM {
     public memory = 1024 * 8,
     public entrypoint = "/sbin/zinit init",
     public planetary = true,
-    public nodeId = 1,
+    public nodeId = undefined,
     public rootFsSize = 25,
 
     /* Network */
@@ -47,10 +47,7 @@ export default class VM {
 
     public envs: Env[] = [],
     public disks: Disk[] = [],
-    public publicIp = false,
-
-    /* Configs */
-    public configs = window.configs.baseConfig
+    public publicIp = false
   ) {}
 
   public get valid(): boolean {

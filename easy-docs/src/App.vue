@@ -4,7 +4,7 @@
       v-for="el in elements"
       :key="el"
       type="application/javascript"
-      :src="`/grid_weblets/build/elements/${el}.wc.js`"
+      :src="`/build/elements/${el}.wc.js`"
       defer
     ></script>
 
@@ -33,12 +33,13 @@ import { findInitialPage } from "@/utils/sidenav";
 })
 export default class App extends Vue {
   elements = [
-    "base",
+    "profiles",
     "kubernetes",
     "vm",
     "deployedlist",
     "caprover",
     "farmingcalculator",
+    // "peertube",
   ];
   sidenav: ISidenav | null = null;
 

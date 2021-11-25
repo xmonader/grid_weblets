@@ -4,14 +4,14 @@ import isValidInteger from "../utils/isValidInteger";
 export abstract class Base {
   public constructor(
     public id = v4(),
-    public name: string = "vm_" + id.split("-")[0],
+    public name: string = "worker_" + id.split("-")[0],
     public node: number = 0,
     public cpu: number = 0,
     public diskSize: number = 100,
     public publicIp: boolean = false,
     public memory: number = 0,
-    public rootFsSize: number = 25,
-    public plantery: boolean = true
+    public rootFsSize: number = 50,
+    public planetary: boolean = true
   ) {}
 
   public get valid(): boolean {
@@ -48,12 +48,11 @@ export default class Kubernetes {
     public master = new Master(),
     public workers = [new Worker()],
     public network = new Network(),
-    public name: string = "",
-    public secret: string = "",
+    public name: string = "k8s_" + id.split("-")[0],
+    public secret: string = v4().split("-")[0],
     public sshKey: string = "",
     public metadata: string = "",
-    public description: string = "",
-    public configs = window.configs.baseConfig
+    public description: string = ""
   ) {}
 
   public get valid(): boolean {
